@@ -1,40 +1,370 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Methusala Jeeva's Data Analytics Webinar Experience">
+<title>Data Analytics | Methusala Jeeva</title>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
-  <meta
-    name="description"
-    content="Methusala Jeeva's Data Analytics webinar experience and learning journey."
-  >
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+font-family:Inter,sans-serif;background:#070a17;color:#f5f7ff;
+line-height:1.7;overflow-x:hidden
+}
+body:before{
+content:"";position:fixed;inset:0;z-index:-3;
+background:
+radial-gradient(circle at 15% 20%,#3526a833,transparent 30%),
+radial-gradient(circle at 85% 30%,#008cff22,transparent 28%),
+radial-gradient(circle at 50% 90%,#8b5cf622,transparent 30%);
+}
+body:after{
+content:"";position:fixed;inset:0;z-index:-2;opacity:.12;
+background-image:linear-gradient(#ffffff08 1px,transparent 1px),
+linear-gradient(90deg,#ffffff08 1px,transparent 1px);
+background-size:60px 60px;
+}
 
-  <meta name="theme-color" content="#070b1a">
+nav{
+position:fixed;top:20px;left:50%;transform:translateX(-50%);
+width:min(1100px,92%);padding:13px 18px;
+display:flex;align-items:center;justify-content:space-between;
+background:#ffffff0b;border:1px solid #ffffff18;
+backdrop-filter:blur(18px);border-radius:50px;z-index:100
+}
+.logo{font-weight:800;font-size:18px}
+.logo span{color:#7c8cff}
+.navlinks{display:flex;gap:25px}
+.navlinks a{color:#bfc5d8;text-decoration:none;font-size:14px}
+.navlinks a:hover{color:white}
+.navbtn{
+background:white;color:#090b17!important;padding:9px 16px;
+border-radius:30px;font-weight:700
+}
 
-  <title>Data Analytics | Methusala Jeeva</title>
+.menu{display:none;font-size:25px;cursor:pointer}
 
-  <style>
-    /* =========================================================
-       RESET
-    ========================================================= */
+.hero{
+min-height:100vh;display:flex;align-items:center;
+padding:130px 7% 80px;position:relative
+}
+.hero-content{max-width:850px}
+.tag{
+display:inline-block;padding:8px 14px;border:1px solid #ffffff20;
+background:#ffffff0b;border-radius:30px;color:#aeb8ff;
+font-size:13px;margin-bottom:25px
+}
+h1{
+font-size:clamp(48px,8vw,92px);line-height:.98;
+letter-spacing:-5px;margin-bottom:25px
+}
+.gradient{
+background:linear-gradient(90deg,#fff,#8c9cff,#68d5ff);
+-webkit-background-clip:text;color:transparent
+}
+.hero p{
+max-width:650px;color:#aeb4c7;font-size:18px;margin-bottom:35px
+}
+.buttons{display:flex;gap:14px;flex-wrap:wrap}
+.btn{
+padding:14px 22px;border-radius:12px;text-decoration:none;
+font-weight:700;display:inline-block;transition:.3s
+}
+.primary{background:white;color:#080a15}
+.secondary{border:1px solid #ffffff22;color:white;background:#ffffff08}
+.btn:hover{transform:translateY(-3px)}
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+.orb{
+position:absolute;width:430px;height:430px;right:8%;top:24%;
+border-radius:50%;
+background:radial-gradient(circle at 35% 30%,#9ca9ff,#5539bb 35%,#10142c 70%);
+filter:blur(.3px);opacity:.45;
+box-shadow:0 0 120px #6256ff55;
+animation:float 6s ease-in-out infinite
+}
+@keyframes float{50%{transform:translateY(-20px) rotate(5deg)}}
 
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 100px;
-    }
+section{padding:110px 7%;max-width:1250px;margin:auto}
+.kicker{color:#8190ff;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:2px}
+h2{font-size:clamp(35px,5vw,60px);line-height:1.05;letter-spacing:-2px;margin:12px 0 20px}
+.lead{color:#aeb4c7;max-width:700px}
 
-    body {
-      font-family:
-        Inter,
-        ui-sans-serif,
-        system-ui,
+.grid{
+display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:45px
+}
+.card{
+padding:30px;border:1px solid #ffffff12;background:#ffffff07;
+border-radius:22px;transition:.35s
+}
+.card:hover{
+transform:translateY(-8px);background:#ffffff0d;
+border-color:#8d9aff55
+}
+.icon{font-size:30px;margin-bottom:18px}
+.card h3{margin-bottom:10px}
+.card p{color:#999fb3;font-size:14px}
+
+.quote{
+margin:30px 0;padding:50px;border-radius:25px;
+background:linear-gradient(135deg,#ffffff0d,#5f67ff12);
+border:1px solid #ffffff15;text-align:center
+}
+.quote p{font-size:clamp(24px,4vw,42px);font-weight:700;line-height:1.2}
+.quote span{display:block;margin-top:20px;color:#858da5}
+
+.stats{
+display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px
+}
+.stat{
+padding:30px;text-align:center;border-radius:20px;
+background:#ffffff07;border:1px solid #ffffff12
+}
+.stat strong{font-size:42px;display:block}
+.stat span{color:#9299ae;font-size:14px}
+
+.final{
+text-align:center;padding:130px 7%;
+background:linear-gradient(#070a1700,#111735)
+}
+.final p{color:#aeb4c7;margin:15px auto 30px;max-width:600px}
+
+footer{
+padding:35px 7%;border-top:1px solid #ffffff0d;
+display:flex;justify-content:space-between;color:#737b91;font-size:13px
+}
+footer a{color:#9ca7ff;text-decoration:none}
+
+.reveal{
+opacity:0;transform:translateY(35px);transition:1s ease
+}
+.reveal.show{opacity:1;transform:none}
+
+@media(max-width:800px){
+nav{top:12px}
+.navlinks{
+display:none;position:absolute;top:65px;left:0;width:100%;
+padding:20px;flex-direction:column;background:#101426;
+border:1px solid #ffffff15;border-radius:20px
+}
+.navlinks.open{display:flex}
+.navbtn{display:none!important}
+.menu{display:block}
+.hero{padding-top:150px}
+.orb{width:260px;height:260px;right:-80px;top:20%;opacity:.25}
+.grid,.stats{grid-template-columns:1fr}
+h1{letter-spacing:-3px}
+footer{flex-direction:column;gap:8px}
+}
+@media(prefers-reduced-motion:reduce){
+*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="logo">MJ<span>.</span></div>
+
+<div class="navlinks" id="links">
+<a href="#about">About</a>
+<a href="#learning">Learning</a>
+<a href="#experience">Experience</a>
+<a href="#next">What's Next</a>
+<a class="navbtn" href="https://github.com/methusala-jeeva">GitHub ↗</a>
+</div>
+
+<div class="menu" onclick="toggleMenu()">☰</div>
+</nav>
+
+<main>
+
+<section class="hero">
+<div class="hero-content reveal">
+<div class="tag">DATA ANALYTICS • WEBINAR • 05 SEPTEMBER 2026</div>
+
+<h1>Turning <span class="gradient">data</span><br>into insight.</h1>
+
+<p>
+A personal reflection on my Data Analytics webinar experience,
+the concepts I explored, and how data can turn everyday information
+into meaningful decisions.
+</p>
+
+<div class="buttons">
+<a class="btn primary" href="#about">Explore Experience ↓</a>
+<a class="btn secondary" href="https://methusalajeeva.blogspot.com/2026/09/data-analytics.html">
+Read Blog ↗
+</a>
+</div>
+</div>
+
+<div class="orb"></div>
+</section>
+
+
+<section id="about" class="reveal">
+<div class="kicker">01 — Introduction</div>
+<h2>More than just numbers.</h2>
+<p class="lead">
+I attended a Data Analytics webinar on September 5, 2026.
+As a CSE AI/ML student, the session helped me understand how
+data is collected, analysed and transformed into useful insights.
+</p>
+</section>
+
+
+<section id="learning">
+<div class="reveal">
+<div class="kicker">02 — What I Learned</div>
+<h2>From raw data<br>to real decisions.</h2>
+<p class="lead">
+The webinar gave me a clearer picture of the analytics process
+and how different stages work together.
+</p>
+</div>
+
+<div class="grid">
+
+<div class="card reveal">
+<div class="icon">◈</div>
+<h3>Collect</h3>
+<p>
+Understanding where data comes from and why clean,
+relevant data is important before analysis.
+</p>
+</div>
+
+<div class="card reveal">
+<div class="icon">⌁</div>
+<h3>Analyse</h3>
+<p>
+Exploring how data can be organised and analysed
+to identify patterns and useful information.
+</p>
+</div>
+
+<div class="card reveal">
+<div class="icon">↗</div>
+<h3>Apply</h3>
+<p>
+Using insights from data to support better decisions
+and solve practical real-world problems.
+</p>
+</div>
+
+</div>
+</section>
+
+
+<section class="reveal">
+<div class="quote">
+<p>
+“Data becomes valuable when we can turn it into
+something meaningful and useful.”
+</p>
+<span>— My key takeaway from the session</span>
+</div>
+</section>
+
+
+<section id="experience">
+<div class="reveal">
+<div class="kicker">03 — My Experience</div>
+<h2>A small session.<br>A bigger perspective.</h2>
+<p class="lead">
+The webinar made Data Analytics feel more connected to
+the technologies I am learning as an AI/ML student.
+It encouraged me to explore analytics tools and practical projects further.
+</p>
+</div>
+
+<div class="stats">
+<div class="stat reveal">
+<strong>01</strong>
+<span>Webinar Session</span>
+</div>
+
+<div class="stat reveal">
+<strong>05</strong>
+<span>September 2026</span>
+</div>
+
+<div class="stat reveal">
+<strong>∞</strong>
+<span>Things to Explore</span>
+</div>
+</div>
+</section>
+
+
+<section id="next">
+<div class="reveal">
+<div class="kicker">04 — What's Next</div>
+<h2>Keep learning.<br>Keep building.</h2>
+<p class="lead">
+This experience has motivated me to continue learning Data Analytics,
+Python, databases and AI/ML while working on practical projects
+that solve real problems.
+</p>
+</div>
+</section>
+
+
+<section class="final reveal">
+<div class="kicker">THANK YOU FOR READING</div>
+<h2>The journey<br>continues.</h2>
+<p>
+Every webinar, project and new skill adds another layer to my journey
+as a CSE AI/ML student.
+</p>
+
+<div class="buttons" style="justify-content:center">
+<a class="btn primary" href="https://github.com/methusala-jeeva">Visit GitHub ↗</a>
+<a class="btn secondary" href="https://methusalajeeva.blogspot.com/2026/09/data-analytics.html">View Blog ↗</a>
+</div>
+</section>
+
+</main>
+
+
+<footer>
+<div>© 2026 Methusala Jeeva</div>
+<div>CSE AI/ML Student • Learning through experience</div>
+</footer>
+
+
+<script>
+function toggleMenu(){
+document.getElementById("links").classList.toggle("open");
+}
+
+const items=document.querySelectorAll(".reveal");
+
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("show");
+observer.unobserve(entry.target);
+}
+});
+},{threshold:.12});
+
+items.forEach(item=>observer.observe(item));
+
+document.querySelectorAll(".navlinks a").forEach(a=>{
+a.addEventListener("click",()=>{
+document.getElementById("links").classList.remove("open");
+});
+});
+</script>
+
+</body>
+</html>        system-ui,
         -apple-system,
         BlinkMacSystemFont,
         "Segoe UI",
